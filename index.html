@@ -39,6 +39,19 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+
+  <style>
+  .paragraph {
+    max-height: 50px; /* Set maximum height for collapsed state */
+    overflow: hidden; /* Hide overflow */
+    transition: max-height 0.3s ease; /* Smooth transition animation */
+    cursor: pointer; /* Change cursor to pointer */
+  }
+  .paragraph.expanded {
+    max-height: none; /* Expand to full height when expanded class is applied */
+  }
+</style>
+
 </head>
 <body>
 
@@ -304,13 +317,18 @@
     </div>
 
     <div class="columns is-centered">
+      <script>
+        function toggleParagraph(element) {
+          element.classList.toggle("expanded"); // Toggle the 'expanded' class on click
+        }
+      </script>
       <div class="column">
         <div class="content">
           <video id="halloween" autoplay controls muted loop playsinline width="300" height="300">
             <source src="./static/videos/halloween.mp4"
                     type="video/mp4">
           </video>
-          <p style="text-align: center;"><font size="-1">
+          <p class="paragraph" onclick="toggleParagraph(this)" style="text-align: center;"><font size="-1">
             "A <b><span style="color: #F06C05">double bed</span></b> is positioned in the middle of the room, a bit nearer to the upper left wall,
             with a perpendicular orientation. A <b><span style="color: #F06C05">wardrobe</span></b> is placed at the middle of the bottom wall,
             somewhat nearer to the left wall, with no rotation. A <b><span style="color: #F06C05">nightstand</span></b> is positioned at the top
