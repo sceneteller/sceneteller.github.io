@@ -45,10 +45,10 @@
     max-height: 50px; /* Set maximum height for collapsed state */
     overflow: hidden; /* Hide overflow */
     transition: max-height 0.3s ease; /* Smooth transition animation */
-    cursor: pointer; /* Change cursor to pointer */
   }
-  .paragraph.expanded {
-    max-height: none; /* Expand to full height when expanded class is applied */
+  .expand-button {
+    color: blue;
+    cursor: pointer;
   }
 </style>
 
@@ -318,8 +318,20 @@
 
     <div class="columns is-centered">
       <script>
-        function toggleParagraph(element) {
-          element.classList.toggle("expanded"); // Toggle the 'expanded' class on click
+        function expandParagraph() {
+          var paragraph = document.getElementById("paragraph");
+          var expandButton = document.getElementById("expandButton");
+
+          // Toggle between collapsed and expanded states
+          if (paragraph.classList.contains("expanded")) {
+            paragraph.style.maxHeight = "50px"; // Set maximum height for collapsed state
+            expandButton.innerHTML = "[...]"; // Change button text to '[...]' for collapsed state
+            paragraph.classList.remove("expanded");
+          } else {
+            paragraph.style.maxHeight = paragraph.scrollHeight + "px"; // Expand to full height
+            expandButton.innerHTML = "[collapse]"; // Change button text to '[collapse]' for expanded state
+            paragraph.classList.add("expanded");
+          }
         }
       </script>
       <div class="column">
@@ -328,6 +340,7 @@
             <source src="./static/videos/halloween.mp4"
                     type="video/mp4">
           </video>
+          <div class="paragraph" id="paragraph">
           <p style="text-align: center;"><font size="-1">
             "A <b><span style="color: #F06C05">double bed</span></b> is positioned in the middle of the room, a bit nearer to the upper left wall,
             with a perpendicular orientation. A <b><span style="color: #F06C05">wardrobe</span></b> is placed at the middle of the bottom wall,
@@ -337,7 +350,8 @@
             of the right wall, slightly nearer to the bottom wall, oriented perpendicularly but in the
             opposite direction. Another <b><span style="color: #F06C05">cabinet</span></b> is set near the top right corner, oriented perpendicularly
             but in the reverse direction. <b><span style="color: #F06C05">Make it Halloween themed.</span></b>"
-          </font></p>
+          </font></p></div>
+          <div class="expand-button" id="expandButton" onclick="expandParagraph()">[...]</div>
         </div>
       </div>
 
