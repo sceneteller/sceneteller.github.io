@@ -42,7 +42,7 @@
 
   <style>
   .paragraph {
-    max-height: 75px; /* Set maximum height for collapsed state */
+    max-height: 100px; /* Set maximum height for collapsed state */
     overflow: hidden; /* Hide overflow */
     transition: max-height 0.3s ease; /* Smooth transition animation */
   }
@@ -324,7 +324,7 @@
 
           // Toggle between collapsed and expanded states
           if (paragraph.classList.contains("expanded")) {
-            paragraph.style.maxHeight = "50px"; // Set maximum height for collapsed state
+            paragraph.style.maxHeight = "100px"; // Set maximum height for collapsed state
             expandButton.innerHTML = "[...]"; // Change button text to '[...]' for collapsed state
             paragraph.classList.remove("expanded");
           } else {
