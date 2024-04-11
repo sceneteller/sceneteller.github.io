@@ -52,8 +52,19 @@
   }
 </style>
 
+  <style>
+  .video-small {
+    height: 10%;
+  }
+
+  .video-large {
+    height: 75%;
+  }
+</style>
+
 </head>
 <body>
+
 
 <!--
 <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -200,36 +211,45 @@
     <div class="container">
       <div id="results-carousel" class="carousel results-carousel">
         <div class="item item-steve">
-          <video poster="" id="valentinesv" autoplay controls muted loop playsinline width="300" height="300">
+          <video poster="" id="valentinesv" autoplay controls muted loop playsinline class="video-small">
             <source src="./static/videos/valentines.mp4"
                     type="video/mp4">
           </video>
         </div>
         <div class="item item-chair-tp">
-          <video poster="" id="goldbedv" autoplay controls muted loop playsinline width="300" height="300">
+          <video poster="" id="goldbedv" autoplay controls muted loop playsinline class="video-small">
             <source src="./static/videos/goldbed.mp4"
                     type="video/mp4">
           </video>
         </div>
         <div class="item item-shiba">
-          <video poster="" id="pirate1v" autoplay controls muted loop playsinline width="300" height="300">
+          <video poster="" id="pirate1v" autoplay controls muted loop playsinline class="video-small">
             <source src="./static/videos/pirate1.mp4"
                     type="video/mp4">
           </video>
         </div>
 
         <div class="item item-toby">
-          <video poster="" id="barbiev" autoplay controls muted loop playsinline width="300" height="300">
+          <video poster="" id="barbiev" autoplay controls muted loop playsinline class="video-small">
             <source src="./static/videos/barbie.mp4"
                     type="video/mp4">
           </video>
         </div>
         <div class="item item-toby">
-          <video poster="" id="iceagev" autoplay controls muted loop playsinline width="300" height="300">
+          <video poster="" id="iceagev" autoplay controls muted loop playsinline class="video-small">
             <source src="./static/videos/iceage.mp4"
                     type="video/mp4">
           </video>
         </div>
+        <script>
+          // Get all video elements with the class "myVideo"
+          var videos = document.querySelectorAll(".video-small");
+
+          // Loop through each video and set the playback rate to 2x speed
+          videos.forEach(function(video) {
+            video.playbackRate = 10.0;
+          });
+        </script>
       </div>
     </div>
   </div>
